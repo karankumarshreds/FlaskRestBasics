@@ -5,9 +5,10 @@ app = Flask(__name__)
 # initialize app as an API
 api = Api(app)
 
+# create a resource 
 class HelloWorld(Resource):
   def get(self):
-    return { "Hello World" }
+    return { "data": "Hello World" }
 
 # register it as a resource 
 api.add_resource(HelloWorld, "/home")

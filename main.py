@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request 
 from flask_restful import Api, Resource
 
 app = Flask(__name__)
@@ -15,7 +15,9 @@ names = {
 class HelloWorld(Resource):
   def get(self, name):
     return { "details": names[name] }
-  def post(self): 
+  def post(self, name): 
+    # the body comes in as a form 
+    print(request.form)
     return { "method": "Hey there" }
 
 # register it as a resource 
